@@ -1,6 +1,6 @@
 <?php
 
-require_onde dirname(__FILE__). "/../SimpleXMLReader.php";
+require_onde dirname(__FILE__). "/../library/SimpleXMLReader.php";
 
 class ExampleXmlReader1 extends SimpleXMLReader
 {
