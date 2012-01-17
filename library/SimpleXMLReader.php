@@ -23,7 +23,7 @@ class SimpleXMLReader extends XMLReader
      * @param  string   $name
      * @param  callback $callback
      * @param  integer  $nodeType
-     * @return Aquilon_Xml_Parser
+     * @return SimpleXMLReader
      */
     public function registerCallback($name, $callback, $nodeType = XMLREADER::ELEMENT)
     {
@@ -42,7 +42,7 @@ class SimpleXMLReader extends XMLReader
      *
      * @param  string  $name
      * @param  integer $nodeType
-     * @return Aquilon_Xml_Parser
+     * @return SimpleXMLReader
      */
     public function unRegisterCallback($name, $nodeType = XMLREADER::ELEMENT)
     {
