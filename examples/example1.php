@@ -1,6 +1,6 @@
 <?php
 
-require_onde dirname(__FILE__). "/../library/SimpleXMLReader.php";
+require_once dirname(__FILE__). "/../library/SimpleXMLReader.php";
 
 class ExampleXmlReader1 extends SimpleXMLReader
 {
@@ -17,7 +17,7 @@ class ExampleXmlReader1 extends SimpleXMLReader
         $attributes = $xml->attributes();
         $ref = (string) $attributes->{"Номенклатура"};
         if ($ref) {
-            $price = floatval((string)$xml));
+            $price = floatval((string)$xml);
             echo "Цена: $ref = $price;\n";
         }
         return true;
@@ -29,7 +29,7 @@ class ExampleXmlReader1 extends SimpleXMLReader
         $attributes = $xml->attributes();
         $ref = (string) $attributes->{"Номенклатура"};
         if ($ref) {
-            $rest = floatval((string) $xml));
+            $rest = floatval((string) $xml);
             echo "Остаток: $ref = $rest;\n";
         }
         return true;
@@ -37,6 +37,7 @@ class ExampleXmlReader1 extends SimpleXMLReader
 
 }
 
+$file = dirname(__FILE__) . "/example1.xml";
 $reader = new ExampleXmlReader1;
 $reader->open($file);
 $reader->parse();
