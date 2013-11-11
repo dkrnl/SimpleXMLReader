@@ -1,5 +1,6 @@
 <?php
 
+header ("Content-type: text/html, charset=utf-8;");
 require_once dirname(__FILE__). "/../library/SimpleXMLReader.php";
 
 class ExampleXmlReader1 extends SimpleXMLReader
@@ -7,8 +8,10 @@ class ExampleXmlReader1 extends SimpleXMLReader
 
     public function __construct()
     {
+        // by node name
         $this->registerCallback("Цена", array($this, "callbackPrice"));
-        $this->registerCallback("Остаток", array($this, "callbackRest"));
+        // by xpath
+        $this->registerCallback("/Данные/Остатки/Остаток", array($this, "callbackRest"));
     }
 
     protected function callbackPrice($reader)
@@ -18,7 +21,8 @@ class ExampleXmlReader1 extends SimpleXMLReader
         $ref = (string) $attributes->{"Номенклатура"};
         if ($ref) {
             $price = floatval((string)$xml);
-            echo "Цена: $ref = $price;\n";
+            $xpath = $this->currentXpath();
+            echo "$xpath: $ref = $price;\n";
         }
         return true;
     }
@@ -30,13 +34,15 @@ class ExampleXmlReader1 extends SimpleXMLReader
         $ref = (string) $attributes->{"Номенклатура"};
         if ($ref) {
             $rest = floatval((string) $xml);
-            echo "Остаток: $ref = $rest;\n";
+            $xpath = $this->currentXpath();
+            echo "$xpath: $ref = $rest;\n";
         }
         return true;
     }
 
 }
 
+echo "<pre>";
 $file = dirname(__FILE__) . "/example1.xml";
 $reader = new ExampleXmlReader1;
 $reader->open($file);
