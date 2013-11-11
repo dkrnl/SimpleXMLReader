@@ -183,9 +183,14 @@ class SimpleXMLReader extends XMLReader
             if (isset($this->callback[$this->nodeType][$this->name])) {
                 $continue = call_user_func($this->callback[$this->nodeType][$this->name], $this);
             } else {
-                $xpath = $this->currentXpath();
+                $xpath = $this->currentXpath(false); // without not counter
                 if (isset($this->callback[$this->nodeType][$xpath])) {
                     $continue = call_user_func($this->callback[$this->nodeType][$xpath], $this);
+                } else {
+                    $xpath = $this->currentXpath(true); // with node counter
+                    if (isset($this->callback[$this->nodeType][$xpath])) {
+                        $continue = call_user_func($this->callback[$this->nodeType][$xpath], $this);
+                    }
                 }
             }
         }
