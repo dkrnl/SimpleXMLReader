@@ -180,10 +180,13 @@ class SimpleXMLReader extends XMLReader
         }
         $continue = true;
         while ($continue && $this->read()) {
+            if (!isset($this->callback[$this->nodeType])) {
+                continue;
+            }
             if (isset($this->callback[$this->nodeType][$this->name])) {
                 $continue = call_user_func($this->callback[$this->nodeType][$this->name], $this);
             } else {
-                $xpath = $this->currentXpath(false); // without not counter
+                $xpath = $this->currentXpath(false); // without node counter
                 if (isset($this->callback[$this->nodeType][$xpath])) {
                     $continue = call_user_func($this->callback[$this->nodeType][$xpath], $this);
                 } else {
