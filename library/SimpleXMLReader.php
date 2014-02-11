@@ -205,11 +205,12 @@ class SimpleXMLReader extends XMLReader
      * @param  string $path
      * @param  string $version
      * @param  string $encoding
+     * @param  string $className
      * @return array(SimpleXMLElement)
      */
-    public function expandXpath($path, $version = "1.0", $encoding = "UTF-8")
+    public function expandXpath($path, $version = "1.0", $encoding = "UTF-8", $className = null)
     {     
-        return $this->expandSimpleXml($version, $encoding)->xpath($path);
+        return $this->expandSimpleXml($version, $encoding, $className)->xpath($path);
     }
 
     /**
@@ -217,11 +218,12 @@ class SimpleXMLReader extends XMLReader
      *
      * @param  string $version
      * @param  string $encoding
+     * @param  string $className
      * @return SimpleXMLElement
      */
-    public function expandString($version = "1.0", $encoding = "UTF-8")
+    public function expandString($version = "1.0", $encoding = "UTF-8", $className = null)
     {
-        return $this->expandSimpleXml($version, $encoding)->asXML();
+        return $this->expandSimpleXml($version, $encoding, $className)->asXML();
     }
 
     /**
