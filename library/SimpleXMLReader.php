@@ -69,10 +69,10 @@ class SimpleXMLReader extends XMLReader
     public function registerCallback($xpath, $callback, $nodeType = XMLREADER::ELEMENT)
     {
         if (isset($this->callback[$nodeType][$xpath])) {
-            throw new Aquilon_Exception("Already exists callback '$xpath':$nodeType.");
+            throw new Exception("Already exists callback '$xpath':$nodeType.");
         }
         if (!is_callable($callback)) {
-            throw new Aquilon_Exception("Not callable callback '$xpath':$nodeType.");
+            throw new Exception("Not callable callback '$xpath':$nodeType.");
         }
         $this->callback[$nodeType][$xpath] = $callback;
         return $this;
