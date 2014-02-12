@@ -238,6 +238,11 @@ class SimpleXMLReader extends XMLReader
     {
         $element = $this->expand();
         $document = new DomDocument($version, $encoding);
+        if ($element instanceof DOMCharacterData) {
+            $node = $document->createElement("root");
+            $node->appendChild($element);
+            $element = $node;
+        }
         $node = $document->importNode($element, true);
         $document->appendChild($node);
         return simplexml_import_dom($node, $className);
