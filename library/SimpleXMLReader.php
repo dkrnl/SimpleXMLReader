@@ -239,7 +239,9 @@ class SimpleXMLReader extends XMLReader
         $element = $this->expand();
         $document = new DomDocument($version, $encoding);
         if ($element instanceof DOMCharacterData) {
-            $node = $document->createElement("root");
+            $nodeName = array_splice($this->nodesParsed, -2, 1);
+            $nodeName = $nodeName ? $nodeName[0] : "root";
+            $node = $document->createElement($nodeName);
             $node->appendChild($element);
             $element = $node;
         }
