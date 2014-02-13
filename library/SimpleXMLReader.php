@@ -240,7 +240,7 @@ class SimpleXMLReader extends XMLReader
         $document = new DomDocument($version, $encoding);
         if ($element instanceof DOMCharacterData) {
             $nodeName = array_splice($this->nodesParsed, -2, 1);
-            $nodeName = $nodeName ? $nodeName[0] : "root";
+            $nodeName = (isset($nodeName[0]) && $nodeName[0] ? $nodeName[0] : "root");
             $node = $document->createElement($nodeName);
             $node->appendChild($element);
             $element = $node;
@@ -263,7 +263,7 @@ class SimpleXMLReader extends XMLReader
         $document = new DomDocument($version, $encoding);
         if ($element instanceof DOMCharacterData) {
             $nodeName = array_splice($this->nodesParsed, -2, 1);
-            $nodeName = $nodeName ? $nodeName[0] : "root";
+            $nodeName = (isset($nodeName[0]) && $nodeName[0] ? $nodeName[0] : "root");
             $node = $document->createElement($nodeName);
             $node->appendChild($element);
             $element = $node;
