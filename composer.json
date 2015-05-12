@@ -1,0 +1,19 @@
+{
+    "name": "dkrnl/SimpleXMLReader",
+    "description": "Wrapper XMLReader class, for simple SAX-reading(and simple XPath-queries) of huge(testing over 1G file) xml.",
+    "keywords": ["XML", "XMLReader", "Iterator"],
+    "homepage": "https://github.com/dkrnl/SimpleXMLReader",
+    "authors": [
+        {
+            "name": "dkrnl",
+            "homepage": "http://dpyatkov.ru/"
+        }
+    ],
+    "autoload": {
+        "files": ["autoload.php"]
+    },
+    "license": "Public Domain",
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
