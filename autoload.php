@@ -1,3 +1,3 @@
 <?php
 
-require dirname(__FILE__) . "/SimpleXMLReader.php";
+require dirname(__FILE__) . "/library/SimpleXMLReader.php";
