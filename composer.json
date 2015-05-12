@@ -1,5 +1,5 @@
 {
-    "name": "dkrnl/SimpleXMLReader",
+    "name": "dkrnl/simple-xml-reader",
     "description": "Wrapper XMLReader class, for simple SAX-reading(and simple XPath-queries) of huge(testing over 1G file) xml.",
     "keywords": ["XML", "XMLReader", "Iterator"],
     "homepage": "https://github.com/dkrnl/SimpleXMLReader",
