@@ -14,7 +14,7 @@ $reader->registerCallback("by-node-name", function($reader) {
     /* ... */
 });
 $reader->registerCallback("/by/xpath/query", function($reader) {
-    $element = $reader->expandSimpleXml(); // copy of the current node as a SimpleXMLElement object
+    $element = $reader->expandDomDocument(); // copy of the current node as a DOMNode object
     $attributes = $element->attributes(); // read element attributes
     /* ... */
 });
