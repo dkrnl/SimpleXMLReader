@@ -56,6 +56,13 @@ class SimpleXMLReader extends XMLReader
      * @var array
      */
     protected $nodesCounter = array();
+    
+    /**
+     * Do not remove redundant white space.
+     * 
+     * @var bool
+     */
+    public $preserveWhiteSpace = true;
 
 
     /**
@@ -238,6 +245,7 @@ class SimpleXMLReader extends XMLReader
     {
         $element = $this->expand();
         $document = new DomDocument($version, $encoding);
+        $document->preserveWhiteSpace = $this->preserveWhiteSpace;
         if ($element instanceof DOMCharacterData) {
             $nodeName = array_splice($this->nodesParsed, -2, 1);
             $nodeName = (isset($nodeName[0]) && $nodeName[0] ? $nodeName[0] : "root");
@@ -261,6 +269,7 @@ class SimpleXMLReader extends XMLReader
     {
         $element = $this->expand();
         $document = new DomDocument($version, $encoding);
+        $document->preserveWhiteSpace = $this->preserveWhiteSpace;
         if ($element instanceof DOMCharacterData) {
             $nodeName = array_splice($this->nodesParsed, -2, 1);
             $nodeName = (isset($nodeName[0]) && $nodeName[0] ? $nodeName[0] : "root");
