@@ -11,12 +11,14 @@ $reader->open("big.xml");
 $reader->registerCallback("by-node-name", function($reader) {
     $element = $reader->expandSimpleXml(); // copy of the current node as a SimpleXMLElement object
     $attributes = $element->attributes(); // read element attributes
-    /* ... */
+    /* ...your code here... */
+    return true;
 });
 $reader->registerCallback("/by/xpath/query", function($reader) {
     $element = $reader->expandDomDocument(); // copy of the current node as a DOMNode object
     $attributes = $element->attributes(); // read element attributes
-    /* ... */
+    /* ...your code here... */
+    return true;
 });
 $reader->parse();
 $reader->close();
