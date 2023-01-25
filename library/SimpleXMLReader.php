@@ -108,7 +108,7 @@ class SimpleXMLReader extends XMLReader
      * @link http://php.net/manual/en/xmlreader.read.php
      * @return bool Returns TRUE on success or FALSE on failure.
      */
-    public function read()
+    public function read(): bool
     {
         $read = parent::read();       
         if ($this->depth < $this->prevDepth) {
