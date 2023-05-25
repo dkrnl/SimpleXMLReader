@@ -12,11 +12,20 @@
     "autoload": {
         "files": ["autoload.php"]
     },
+    "autoload-dev": {
+        "psr-4": {
+            "SimpleXMLReader\\Tests\\": "tests/"
+        }
+    },
     "license": "PDDL-1.0",
     "require": {
-        "php": ">=5.3.0",
-        "lib-libxml" : "*",
+        "ext-dom" : "*",
         "ext-xmlreader" : "*",
-        "ext-dom" : "*"
+        "lib-libxml" : "*",
+        "php": ">=8.2"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^10.1"
     }
 }
