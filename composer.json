@@ -1,23 +1,25 @@
 {
-    "name": "dkrnl/simplexmlreader",
-    "description": "Wrapper XMLReader class, for simple SAX-reading(and simple XPath-queries) of huge(testing over 1G file) xml.",
+    "name": "makinacorpus/simple-xml-reader",
+    "description": "Extends XMLReader PHP class, for simple SAX-reading and XPath queries of huge XML files.",
     "keywords": ["XML", "XMLReader", "Iterator", "SimpleXML"],
-    "homepage": "https://github.com/dkrnl/SimpleXMLReader",
+    "homepage": "https://github.com/makinacorpus/php-simple-xml-reader",
+    "license": "MIT",
     "authors": [
         {
-            "name": "dkrnl",
-            "homepage": "http://dpyatkov.ru/"
+            "name": "Makina Corpus",
+            "homepage": "https://makina-corpus.com/"
         }
     ],
     "autoload": {
-        "files": ["autoload.php"]
+        "psr-4": {
+            "MakinaCorpus\\SimpleXMLReader\\": "src/"
+        }
     },
     "autoload-dev": {
         "psr-4": {
-            "SimpleXMLReader\\Tests\\": "tests/"
+            "MakinaCorpus\\SimpleXMLReader\\Tests\\": "tests/"
         }
     },
-    "license": "PDDL-1.0",
     "require": {
         "ext-dom" : "*",
         "ext-xmlreader" : "*",

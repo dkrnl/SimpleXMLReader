@@ -20,7 +20,7 @@
 
     <source>
         <include>
-            <directory>library</directory>
+            <directory>src</directory>
             <directory>tests</directory>
         </include>
     </source>

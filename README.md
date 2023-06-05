@@ -1,10 +1,13 @@
 # Simple XML Reader 
 
-Wrapper XMLReader(http://php.net/manual/ru/book.xmlreader.php) class, for simple **SAX**-reading(and simple **XPath**-queries) of **huge**(testing over 1G file) xml.
+Extends XMLReader PHP class, for simple SAX-reading and XPath queries of huge
+XML files without consuming memory.
 
-**Minimum the memory** usage of other xml libraries(SimpleXML, DOMXML).
+Forked from https://github.com/dkrnl/SimpleXMLReader for adding PHP 8.2 support,
+unit tests, and static analysis tooling.
 
-Usage example 1:
+Example usage:
+
 ```php
 $reader = new SimpleXMLReader;
 $reader->open("big.xml");
@@ -22,8 +25,8 @@ $reader->registerCallback("/by/xpath/query", function($reader) {
 });
 $reader->parse();
 $reader->close();
-
 ```
-Usage example 2: http://github.com/dkrnl/SimpleXMLReader/blob/master/examples/example1.php
 
-License: Public Domain
+Original package was licenced under *Public Domain*, this fork is licenced
+under the MIT licence. All credits for the original code belong to the original
+author, *Dmitry Pyatkov* (aka *dkrnl*) <dkrnl@yandex.ru>.
